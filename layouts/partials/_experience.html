@@ -9,23 +9,9 @@
             <div class="experience__item">
                 <div class="experience__header">
                     <h3 class="experience__company">
-                        {{ .Employer | safeHTML }}
+                        {{ .Employer | safeHTML }}: {{ .Date | safeHTML }}
                     </h3>
-<!--                    <h3 class="experience__place">{{ .Place | safeHTML }}</h3>-->
-                </div>
-                {{ range .Positions }}
-                <div class="experience__job">
-                    <div class="experience__subheader">
-                        <h3 class="experience__position">
-                            {{ .Title | safeHTML}}
-                        </h3>
-                        <h3 class="experience__date">{{ .Date | safeHTML }}</h3>
-                    </div>
-                    <ul>
-                        {{ range .Details }}
-                        <li class="experience__bullet">{{ . }}</li>
-                        {{ end }}
-                    </ul>
+<!--                    <h3 class="experience__date">{{ .Date | safeHTML }}</h3>-->
                     <div class="experience__badges">
                         <ul>
                             {{ range .Badges }}
@@ -33,6 +19,27 @@
                             {{ end }}
                         </ul>
                     </div>
+<!--                    <h3 class="experience__place">{{ .Place | safeHTML }}</h3>-->
+                </div>
+                {{ range .Positions }}
+                <div class="experience__job">
+                    <div class="experience__subheader">
+                        {{ if .Date }}
+                        <h3 class="experience__position">
+                            {{ .Title | safeHTML}}: {{ .Date | safeHTML }}
+                        </h3>
+                        {{ else }}
+                        <h3 class="experience__position">
+                            {{ .Title | safeHTML}}
+                        </h3>
+                        {{ end }}
+<!--                        <h3 class="experience__date">{{ .Date | safeHTML }}</h3>-->
+                    </div>
+                    <ul>
+                        {{ range .Details }}
+                        <li class="experience__bullet">{{ . }}</li>
+                        {{ end }}
+                    </ul>
                 </div>
                 {{ end }}
             </div>
