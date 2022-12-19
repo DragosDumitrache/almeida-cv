@@ -8,7 +8,7 @@
             <li>
                 {{ range .Skills }}
                 <ul class="skills__group">
-                    <span>{{ .Family | safeHTML }}</span>
+                    <h2><b>{{ .Family | safeHTML }}</b></h2>
                     {{ range .Items }}
                     <li>{{ . | safeHTML }}</li>
                     {{ end }}
