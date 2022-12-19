@@ -1,9 +1,9 @@
 {{ if .Projects }}
 <div id="projects" class="section">
     <div class="section__heading">
-        <h2 class="section__title">
+        <h3 class="section__title">
             Projects
-        </h2>
+        </h3>
     </div>
     <div class="section__content">
         {{ range .Projects }}
@@ -25,7 +25,7 @@
                 <li class="experience__bullet">{{ . }}</li>
                 {{ end }}
             {{ if .Link }}
-                <li class="experience__bullet"><a href={{ .Link }}>More information: {{ .Link }}</a></li>
+                <li class="experience__bullet">More information: <a href={{ .Link }}>{{ .Link }}</a></li>
             {{ end }}
             </ul>
         </div>
